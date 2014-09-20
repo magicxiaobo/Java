@@ -15,7 +15,7 @@ class TFFrame extends Frame {
 		num3 = new TextField(15);
 		Label labPlus = new Label("+");
 		Button btnEqual = new Button("=");
-		btnEqual.addActionListener(new MyMonitor(this));
+		btnEqual.addActionListener(new MyMonitor());
 		setLayout(new FlowLayout());
 		add(num1);
 		add(labPlus);
@@ -25,8 +25,17 @@ class TFFrame extends Frame {
 		pack();
 		setVisible(true);
  	}
+
+ 	class MyMonitor implements ActionListener {
+ 		public void actionPerformed (ActionEvent e) {
+ 			int n1 = Integer.parseInt(num1.getText());
+			int n2 = Integer.parseInt(num2.getText());
+			num3.setText("" + (n1 + n2));
+ 		}
+ 	}
 }
 
+/*
 class MyMonitor implements ActionListener {
 	TFFrame tf = null;
 	public MyMonitor (TFFrame tf) {
@@ -39,3 +48,4 @@ class MyMonitor implements ActionListener {
 		tf.num3.setText("" + (n1 + n2));
 	}
 }
+*/
